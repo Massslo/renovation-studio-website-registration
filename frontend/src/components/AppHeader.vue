@@ -36,7 +36,7 @@
       <div class="flex flex-wrap  sm:px-4 mx-auto w-65">
         <div class="w-1/5 flex-grow max-w-full flex-1 px-4">
           <a
-            class="inline-block py-2 px-4 no-underline nav-item"
+            class="text-sm text-bold font-montserrat inline-block py-2 px-4 no-underline nav-item"
             href="#"
           ><router-link to="/PageNotFound">О нас</router-link></a>
         </div>

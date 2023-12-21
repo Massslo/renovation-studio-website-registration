@@ -1,23 +1,13 @@
 <template>
-  <div>
-    <p>
-       В настоящий момент содержимое данной страницы находится в разработке
-    </p>
-  </div>
+  <AppInWork />
 </template>
 
-<script>
+<script lang="ts">
+import AppInWork from '@/components/AppInWork.vue'
+
 export default {
-  name: "PageNotFound"
+  components: {
+    AppInWork
+  }
 }
-
 </script>
-
-<style scoped>
-p {
-  margin-top: 200px;
-  margin-bottom: 200px;
-  font-family: 'Arial';
-  text-align: center;
-}
-</style>
