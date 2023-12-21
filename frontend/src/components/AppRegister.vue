@@ -271,53 +271,53 @@ export default {
 
 
 
-
-    // Функция валидации email
-    const validateEmail = () => {
-      errors.value = [];
-
-      if (!email.value) {
-        emailError.value = 'Введите вашу электронную почту.';
-        document.getElementById("email").style.borderColor = "red";
-      } else if (!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-        emailError.value = 'Введите корректный адрес электронной почты.';
-        document.getElementById("email").style.borderColor = "red";
-      } else {
-        emailError.value = ''; // Очистка сообщения об ошибке, если валидация успешна
-        document.getElementById("email").style.borderColor = "#8DD3BB";
-      }
-    };
-
     /*
-               // Функция валидации email+backend
-                 const validateEmail = async () => {
-                     emailError.value = ''; // Очистка предыдущего сообщения об ошибке
-                     const emailInput = document.getElementById("email");
+        // Функция валидации email
+        const validateEmail = () => {
+          errors.value = [];
 
-                     if (!email.value) {
-                         emailError.value = 'Введите вашу электронную почту.';
-                         emailInput.style.borderColor = "red";
-                     } else if (!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-                         emailError.value = 'Введите корректный адрес электронной почты. example@mail.ru';
-                         emailInput.style.borderColor = "red";
-                     } else {
-                         try {
-                             const response = await axios.post('http://127.0.0.1:8000/api/check-email', {
-                                 email: email.value
-                             });
+          if (!email.value) {
+            emailError.value = 'Введите вашу электронную почту.';
+            document.getElementById("email").style.borderColor = "red";
+          } else if (!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+            emailError.value = 'Введите корректный адрес электронной почты.';
+            document.getElementById("email").style.borderColor = "red";
+          } else {
+            emailError.value = ''; // Очистка сообщения об ошибке, если валидация успешна
+            document.getElementById("email")tyle.borderColor = "#8DD3BB";
+          }
+        };
 
-                             if (response.data.exists) {
-                                 emailError.value = 'Этот адрес электронной почты уже используется.';
-                                 emailInput.style.borderColor = "red";
-                             } else {
-                                 emailInput.style.borderColor = "#8DD3BB";
+         */
+                   // Функция валидации email+backend
+                     const validateEmail = async () => {
+                         emailError.value = ''; // Очистка предыдущего сообщения об ошибке
+                         const emailInput = document.getElementById("email");
+
+                         if (!email.value) {
+                             emailError.value = 'Введите вашу электронную почту.';
+                             emailInput.style.borderColor = "red";
+                         } else if (!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+                             emailError.value = 'Введите корректный адрес электронной почты. example@mail.ru';
+                             emailInput.style.borderColor = "red";
+                         } else {
+                             try {
+                                 const response = await axios.post('http://127.0.0.1:8000/api/check-email', {
+                                     email: email.value
+                                 });
+
+                                 if (response.data.exists) {
+                                     emailError.value = 'Этот адрес электронной почты уже используется.';
+                                     emailInput.style.borderColor = "red";
+                                 } else {
+                                     emailInput.style.borderColor = "#8DD3BB";
+                                 }
+                             } catch (error) {
+                                 console.error('Ошибка запроса', error);
                              }
-                         } catch (error) {
-                             console.error('Ошибка запроса', error);
                          }
-                     }
-                 };
-     */
+                     };
+
     // Прослушивание изменений в поле email и запуск функции валидации
     watch(email, () => {
       validateEmail();
